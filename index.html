@@ -6,66 +6,11 @@
 </head>
 <body>
 
-	
-
-	<script src="Scripts/angular1-6-4.min.js"></script>
-	<script src="Scripts/angular-route.min.js"></script>
-
-	<script>
-
-		var demoApp = angular.module("demoApp", ["ngRoute"]); //[] Means no dependancies
-
-		demoApp.config(function($routeProvider){
-			$routeProvider
-				.when('/',{
-					controller: 'SimpleController',
-					templateUrl: 'Partials/View1.html'
-				})
-				.when('/partial2',{
-					controller: 'SimpleController',
-					templateUrl: 'Partials/View2.html'
-				})
-				.otherwise({redirectTo: '/'});
-		};
-
-		demoApp.controller("SimpleController", function($scope){
-			$scope.customers = [
-				{
-					name: 'Dave Smith',
-					city: 'New York City'
-				},
-				{
-					name: 'Alex Doe',
-					city: 'Phoenix'
-				}
-			];
-
-			$scope.addCustomer = function(){
-				$scope.customers.push({
-					name: 
-				});
-			};
-
-		});
-
-		/* Could also be done as: 
-		var controllers = {};
-		controllers.SimpleController = function($scope){
-			$scope.customers = [
-				{
-					name: 'Dave Smith',
-					city: 'New York City'
-				},
-				{
-					name: 'Alex Doe',
-					city: 'Phoenix'
-				}
-			]
-		};
-		demoApp.controller(controllers); */
-
-	</script>
+	<div>
+		<div ng-view></div>
+	</div>
 
 
+	<script src="js/scripts.min.js"></script>
 </body>
 </html>

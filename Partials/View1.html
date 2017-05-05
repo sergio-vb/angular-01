@@ -6,17 +6,18 @@
 	<p>{{filterName}}</p>
 
 	<ul>
-		<li ng-repeat="cust in customers | orderBy:'name' | filter:nameInput">{{cust.name | uppercase }}, {{cust.city}}</li>
+		<li ng-repeat="cust in customers | orderBy:'name' | filter:filterName">{{cust.name | uppercase }}, {{cust.city}}</li>
 	</ul>
 
 	<h3>New Customer:</h3>
 	<label for="newCustomerName">Name: </label> 
-	<input name="newCustomerName" type="text" ng-model="newCustomerName" />
+	<input name="newCustomerName" type="text" ng-model="newCustomer.name" />
 
 	<label for="newCustomerCity">City: </label> 
-	<input name="newCustomerCity" type="text" ng-model="newCustomerCity" />
+	<input name="newCustomerCity" type="text" ng-model="newCustomer.city" />
 
 	<button ng-click="addCustomer()">Add Customer</button>
 	
+	<a href="#!/view2">View 2</a>
 
 </div>
