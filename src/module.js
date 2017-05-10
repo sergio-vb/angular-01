@@ -79,3 +79,16 @@
 			]
 		};
 		demoApp.controller(controllers); */
+
+		demoApp.directive("testdirective", function(){
+			return {
+				restrict: 'E',
+				transclude: true,
+				link: function(scope, element, attributes){
+					console.log("Scope: ", scope);
+					console.log("Element: ", element);
+					console.log("Attributes: ", attributes);
+				},
+				template: '<h2>Custom directive</h2>'
+			}
+		});
