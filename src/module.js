@@ -85,9 +85,14 @@
 				restrict: 'E',
 				transclude: true,
 				link: function(scope, element, attributes){
-					console.log("Scope: ", scope);
+					
+					/*console.log("Scope: ", scope);
 					console.log("Element: ", element);
-					console.log("Attributes: ", attributes);
+					console.log("Attributes: ", attributes);*/
+
+					element.bind("mouseenter", function(){
+						element[0].innerHTML = "They see me rollin'";
+					});
 				},
 				template: '<h2>Custom directive</h2>'
 			}
