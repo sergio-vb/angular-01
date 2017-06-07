@@ -101,19 +101,25 @@ demoApp.directive("testdirective", function(){
 //Example of an element directive using other attribute directives:
 demoApp.controller("AntariController", function($scope) {
 
-	$scope.antari = ["Antari 1"];
+	$scope.antari = [];
 
-	$scope.addKell = function() {
+	this.addKell = function() {
 		$scope.antari.push("Kell: Red London");
 	};
 
-	$scope.addLila = function() {
+	this.addLila = function() {
 		$scope.antari.push("Lila: Grey London");
 	};
 
-	$scope.addHolland = function() {
+	this.addHolland = function() {
 		$scope.antari.push("Holland: White London");
 	};
+	this.addTest = function() {
+		console.log("addTest");
+	};
+
+	console.log("AntariController Scope: ", $scope);
+	console.log("AntariController This: ", this);
 
 });
 
@@ -136,24 +142,23 @@ demoApp.directive("kell",function() {
 	return{
 		require: "antari",
 		link: function(scope, element, attributes, antariController) {
-			console.log("Scope in inner directive Kell", scope)
-			//console.log("Hello!");
+			antariController.addKell();
 		}
 	}
 });
-/*demoApp.directive("lila",function() {
+demoApp.directive("lila",function() {
 	return{
 		require: "antari",
 		link: function(scope, element, attributes, antariController) {
-			console.log("Scope in inner directives: (Lila) ", scope)
+			antariController.addLila();
 		}
 	}
-});*/
-/*demoApp.directive("holland",function() {
+});
+demoApp.directive("holland",function() {
 	return{
 		require: "antari",
 		link: function(scope, element, attributes, antariController) {
-			//console.log("Scope in inner directives: (Holland) ", scope)
+			antariController.addHolland();
 		}
 	}
-});*/
+});
