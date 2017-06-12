@@ -140,7 +140,7 @@ demoApp.directive("antari", function(){
 //Creates attribute directives that can access the container directive's controller and therefore scope
 demoApp.directive("kell",function() {
 	return{
-		require: "antari",
+		require: "antari", //"^antari" if it were a parent element
 		link: function(scope, element, attributes, antariController) {
 			antariController.addKell();
 		}
